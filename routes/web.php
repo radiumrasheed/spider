@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('login/github', 'Auth\LoginController@redirectToProvider')->name('github-login');
+Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback')->name('github-login-callback');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
